@@ -1,0 +1,95 @@
+<!-- 
+Integrantes:
+Avila Hernandez Kevin
+Ocampo Giles Karen Lizeth
+Pérez Ramos Diana Areli
+Ríos Contreras Israel
+
+Materia: Herrmanientas Web
+Maestra: Rosario Huerta Eloisa
+Grpo: 7B Informática
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estiloIndex.css">
+    <title>Inicio</title>
+</head>
+<body>
+
+    <section class="forms-section">
+        <h1 class="section-title">Juego: Tiro al Blanco</h1>
+        <div class="forms">  <!--Contenedor de los 2 formularios -->
+
+          <div class="form-wrapper is-active">
+            <button type="button" class="switcher switcher-login">
+              Iniciar Sesión
+              <span class="underline"></span>
+            </button>
+
+            <form class="form form-login" action="validaciones/validarLogin.php" method="POST">
+              <fieldset>
+                
+                <div class="input-block">
+                  <label for="usuario">Usuario</label>
+                  <input  type="text" name="usuario" required>
+                </div>
+                <div class="input-block">
+                  <label for="pw">Contraseña</label>
+                  <input type="password" name="pw"  required>
+                </div>
+              </fieldset>
+
+              <button type="submit" class="btn-login">Login</button>
+            </form>
+          </div>
+
+
+          <div class="form-wrapper">
+            <button type="button" class="switcher switcher-signup">
+              Registrarse
+              <span class="underline"></span>
+            </button>
+            <form class="form form-signup" action="CRUD/guardarUsuario.php" method="POST">
+              <fieldset>
+
+                <div class="input-block">
+                  <label for="signup-email">E-mail</label>
+                  <input id="email" type="email" name="txt_correo" required>
+                </div>
+                <div class="input-block">
+                        <label for="signup-text">Usuario</label>
+                        <input id="signup-text" type="text" name="txt_usuario" required>
+                      </div>
+                <div class="input-block">
+                  <label for="pw">Contraseña</label>
+                  <input id="pw" type="password" name="txt_contra" required>
+                </div>
+               </fieldset>
+              <button type="submit" class="btn-login">Aceptar</button>
+            </form>
+          </div>
+
+
+        </div>
+      </section>
+
+<script>
+  /*Para hacer que cambien los formularios*/
+const switchers = [...document.querySelectorAll('.switcher')]
+
+switchers.forEach(item => {
+	item.addEventListener('click', function() {
+		switchers.forEach(item => item.parentElement.classList.remove('is-active'))
+		this.parentElement.classList.add('is-active')
+	})
+})
+</script>
+
+</body>
+</html>
+
